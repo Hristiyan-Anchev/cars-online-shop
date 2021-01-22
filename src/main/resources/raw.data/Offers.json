@@ -1,0 +1,35 @@
+[
+  {
+    "description": "",
+    "engine": 1,
+    "imageUrl": "",
+    "mileage": 20000,
+    "price": 50000,
+    "transmission": 2,
+    "year": 1994,
+    "modelId": 4,
+    "sellerId": 3
+  },
+  {
+    "description": "",
+    "engine": 1,
+    "imageUrl": "",
+    "mileage": 20000,
+    "price": 50000,
+    "transmission": 2,
+    "year": 1994,
+    "modelId": 4,
+    "sellerId": 3
+  },
+  {
+    "description": "",
+    "engine": 1,
+    "imageUrl": "",
+    "mileage": 20000,
+    "price": 50000,
+    "transmission": 2,
+    "year": 1994,
+    "modelId": 4,
+    "sellerId": 3
+  }
+]

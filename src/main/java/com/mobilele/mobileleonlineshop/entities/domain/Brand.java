@@ -3,7 +3,7 @@ package com.mobilele.mobileleonlineshop.entities.domain;
 import com.mobilele.mobileleonlineshop.entities.BaseEntity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Brand extends BaseEntity {
 
