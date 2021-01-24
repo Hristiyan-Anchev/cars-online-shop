@@ -5,10 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -23,7 +20,7 @@ public class Brand extends BaseEntity {
     @Column
     String name;
 
-    @OneToMany(mappedBy = "brand", targetEntity = Model.class)
+    @OneToMany(mappedBy = "brand", targetEntity = Model.class,fetch = FetchType.EAGER)
     Set<Model> models;
 
 }

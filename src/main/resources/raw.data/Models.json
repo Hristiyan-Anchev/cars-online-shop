@@ -1,32 +1,32 @@
 [
   {
-    "name": "",
-    "category": "",
-    "imageUrl": "",
-    "startYear": "",
-    "endYear": "",
+    "name": "model_name_A",
+    "category": "CAR",
+    "imageUrl": "https://via.placeholder.com/1024",
+    "startYear": 1994,
+    "endYear": null,
     "brandId": 1
   },{
-  "name": "",
-  "category": "",
-  "imageUrl": "",
-  "startYear": "",
-  "endYear": "",
-  "brandId": 1
+  "name": "model_name_B",
+  "category": "TRUCK",
+  "imageUrl": "https://via.placeholder.com/1024",
+  "startYear": 1961,
+  "endYear": 1999,
+  "brandId": 2
 },{
-  "name": "",
-  "category": "",
-  "imageUrl": "",
-  "startYear": "",
-  "endYear": "",
-  "brandId": 1
+  "name": "model_name_C",
+  "category": "MOTORCYCLE",
+  "imageUrl": "https://via.placeholder.com/1024",
+  "startYear": 1981,
+  "endYear": 2005,
+  "brandId": 6
 },{
-  "name": "",
-  "category": "",
-  "imageUrl": "",
-  "startYear": "",
-  "endYear": "",
-  "brandId": 1
+  "name": "model_name_D",
+  "category": "BUS",
+  "imageUrl": "https://via.placeholder.com/1024",
+  "startYear": 1993,
+  "endYear": 2020,
+  "brandId": 9
 }
 
 ]

@@ -1,33 +1,38 @@
 [
   {
-    "username": "",
-    "firstName": "",
-    "lastName": "",
+    "username": "Axe_1",
+    "password": "asd",
+    "firstName": "Pesho",
+    "lastName": "PEshev",
     "isActive": true,
-    "imageUrl": ""
+    "imageUrl": "https://via.placeholder.com/1024"
   },{
-  "username": "",
-  "firstName": "",
-  "lastName": "",
-  "isActive": true,
-  "imageUrl": ""
+  "username": "Digit",
+  "password": "ddd",
+  "firstName": "Goshko",
+  "lastName": "Hubaveca",
+  "isActive": false,
+  "imageUrl": "https://via.placeholder.com/1024"
 },{
-  "username": "",
-  "firstName": "",
-  "lastName": "",
+  "username": "Crayon",
+  "password": "pas",
+  "firstName": "Toshko",
+  "lastName": "Afrikanski",
   "isActive": true,
-  "imageUrl": ""
+  "imageUrl": "https://via.placeholder.com/1024"
 },{
-  "username": "",
-  "firstName": "",
-  "lastName": "",
+  "username": "Rubber",
+  "password": "word",
+  "firstName": "Doncho",
+  "lastName": "Donchev",
   "isActive": true,
-  "imageUrl": ""
+  "imageUrl": "https://via.placeholder.com/1024"
 },{
-  "username": "",
-  "firstName": "",
-  "lastName": "",
+  "username":"Giraffe",
+  "password": "mysecretpass",
+  "firstName": "Stamat",
+  "lastName": "Iliev",
   "isActive": true,
-  "imageUrl": ""
+  "imageUrl": "https://via.placeholder.com/1024"
 }
 ]

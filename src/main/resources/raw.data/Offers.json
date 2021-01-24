@@ -1,35 +1,45 @@
 [
   {
-    "description": "",
-    "engine": 1,
-    "imageUrl": "",
-    "mileage": 20000,
-    "price": 50000,
-    "transmission": 2,
+    "description": "Description_1_TEST",
+    "engine": "GASOLINE",
+    "imageUrl": "https://via.placeholder.com/1024",
+    "mileage": 20030,
+    "price": 70000,
+    "transmission": "MANUAL",
     "year": 1994,
-    "modelId": 4,
-    "sellerId": 3
+    "modelId": 1,
+    "sellerId": 1
   },
   {
-    "description": "",
-    "engine": 1,
-    "imageUrl": "",
-    "mileage": 20000,
-    "price": 50000,
-    "transmission": 2,
+    "description": "Description_2_TEST",
+    "engine": "DIESEL",
+    "imageUrl": "https://via.placeholder.com/1024",
+    "mileage": 50000,
+    "price": 90000,
+    "transmission": "AUTOMATIC",
     "year": 1994,
-    "modelId": 4,
-    "sellerId": 3
+    "modelId": 2,
+    "sellerId": 4
   },
   {
-    "description": "",
-    "engine": 1,
-    "imageUrl": "",
-    "mileage": 20000,
-    "price": 50000,
-    "transmission": 2,
+    "description": "Description_3_TEST",
+    "engine": "ELECTRIC",
+    "imageUrl": "https://via.placeholder.com/1024",
+    "mileage": 330000,
+    "price": 70000,
+    "transmission": "MANUAL",
     "year": 1994,
     "modelId": 4,
-    "sellerId": 3
-  }
+    "sellerId": 2
+  },{
+  "description": "Description_4_TEST",
+  "engine": "HYBRID",
+  "imageUrl": "https://via.placeholder.com/1024",
+  "mileage": 200000,
+  "price": 990000,
+  "transmission": "MANUAL",
+  "year": 1994,
+  "modelId": 3,
+  "sellerId": 3
+}
 ]
