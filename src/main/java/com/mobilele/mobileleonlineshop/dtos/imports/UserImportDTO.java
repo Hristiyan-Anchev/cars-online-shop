@@ -1,4 +1,4 @@
-package com.mobilele.mobileleonlineshop.dtos;
+package com.mobilele.mobileleonlineshop.dtos.imports;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

@@ -20,7 +20,7 @@ public class Model  extends BaseEntity {
     String name;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     Category category;
 
     @Column

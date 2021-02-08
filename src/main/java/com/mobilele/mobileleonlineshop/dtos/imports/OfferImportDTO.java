@@ -1,4 +1,4 @@
-package com.mobilele.mobileleonlineshop.dtos;
+package com.mobilele.mobileleonlineshop.dtos.imports;
 
 import com.mobilele.mobileleonlineshop.entities.enums.Engine;
 import com.mobilele.mobileleonlineshop.entities.enums.Transmission;

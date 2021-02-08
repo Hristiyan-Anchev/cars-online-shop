@@ -2,8 +2,9 @@ package com.mobilele.mobileleonlineshop.misc;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mobilele.mobileleonlineshop.dtos.*;
+import com.mobilele.mobileleonlineshop.dtos.imports.*;
 import com.mobilele.mobileleonlineshop.entities.domain.*;
+import com.mobilele.mobileleonlineshop.entities.enums.Role;
 import com.mobilele.mobileleonlineshop.repositories.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -14,8 +15,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayDeque;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,10 @@ public class DataInitializer implements CommandLineRunner {
     @SneakyThrows
 
     public void run(String... args) throws Exception {
+
+        //==================================================================
+        //import user roles
+        importUserRoles();
         //==================================================================
         // importing brands from JSON
 //
@@ -59,9 +64,7 @@ public class DataInitializer implements CommandLineRunner {
 
 
 
-        //==================================================================
-        //import user roles
-        importUserRoles();
+
     }
 
 
@@ -117,11 +120,18 @@ public class DataInitializer implements CommandLineRunner {
 
     public void importUsers(){
         if(userRepository.count() == 0){
+
+            ArrayDeque<UserRoleImportDTO> userRolesMapping = gson.fromJson(textFileParser.parseFileAt(String.format(RESOURCE_DIR,"UserRoles.json")),
+                    new TypeToken<ArrayDeque<UserRoleImportDTO>>(){}.getType());
+
             List<UserImportDTO> importedUsers = gson.fromJson(textFileParser.parseFileAt(String.format(RESOURCE_DIR,"Users.json")),
                     new TypeToken<List<UserImportDTO>>(){}.getType());
 
             List<User> newUsers = importedUsers.stream().map(importedUser ->{
                 User newUser = modelMapper.map(importedUser,User.class);
+                var mappedRole = userRolesMapping.removeFirst().getRole();
+                UserRole newUserRole = userRoleRepository.findByRole(mappedRole);
+                newUser.setRole(newUserRole);
 
                 return newUser;
             }).collect(Collectors.toList());
@@ -133,24 +143,13 @@ public class DataInitializer implements CommandLineRunner {
 
     public void importUserRoles(){
         if(userRoleRepository.count() == 0) {
+            UserRole user = new UserRole();
+            user.setRole(Role.ROLE_USER);
 
+            UserRole admin = new UserRole();
+            admin.setRole(Role.ROLE_ADMIN);
 
-            List<UserRoleImportDTO> importedUserRoles = gson.fromJson(textFileParser
-                            .parseFileAt(String.format(RESOURCE_DIR, "UserRoles.json")),
-                    new TypeToken<List<UserRoleImportDTO>>() {
-                    }.getType());
-
-            List<UserRole> userRoles = importedUserRoles.stream()
-                    .map(importedUserRole -> {
-                        UserRole newRole = modelMapper.map(importedUserRole, UserRole.class);
-                        User targetUser = userRepository.findById(importedUserRole.getUserId()).orElse(null);
-
-                        newRole.setUser(targetUser);
-
-                        return newRole;
-                    }).collect(Collectors.toList());
-
-            userRoleRepository.saveAll(userRoles);
+            userRoleRepository.saveAll(List.of(user,admin));
         }
     }
 }

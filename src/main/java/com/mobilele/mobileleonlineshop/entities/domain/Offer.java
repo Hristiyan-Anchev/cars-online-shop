@@ -21,7 +21,7 @@ public class Offer extends BaseEntity {
     String description;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     Engine engine;
 
     @Column
@@ -34,7 +34,7 @@ public class Offer extends BaseEntity {
     Double price;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     Transmission transmission;
 
     @Column

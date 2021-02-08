@@ -1,5 +1,6 @@
 package com.mobilele.mobileleonlineshop.services.authentication;
 
+import com.mobilele.mobileleonlineshop.dtos.UserDetailsPrincipal;
 import com.mobilele.mobileleonlineshop.entities.domain.User;
 import com.mobilele.mobileleonlineshop.repositories.UserRepository;
 import lombok.AccessLevel;
@@ -22,15 +23,19 @@ public class UserDetailsProviderService implements UserDetailsService {
 
     UserRepository userRepository;
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
 
         if(user == null){
-            throw new UsernameNotFoundException(
-                    String.format("User %s does not exist",username));
+            throw new UsernameNotFoundException("Something went wrong, try again");
         }
 
-        return new ;
+
+
+        return new UserDetailsPrincipal(user);
+
+
     }
 }

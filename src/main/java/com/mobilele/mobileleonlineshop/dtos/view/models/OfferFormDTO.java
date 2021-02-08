@@ -17,35 +17,35 @@ import java.util.List;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class OfferUploadDTO {
-//    @NotEmpty(message = "Description is required")
-//    @Size(min = 10, max = 100)
+public class OfferFormDTO {
+    @NotEmpty(message = "Description is required")
+    @Size(min = 10, max = 100)
     String description;
 
-//    @NotEmpty(message = "Engine is required")
+    @NotEmpty(message = "Engine is required")
     Engine[] engine;
 
-//    @NotEmpty(message = "Image is required")
-//    @URL(message = "Image is not a valid URL")
+    @NotEmpty(message = "Image is required")
+    @URL(message = "Image is not a valid URL")
     String imageUrl;
 
-//    @Positive(message = "Mileage needs to be positive number")
-//    @NotNull
+    @Positive(message = "Mileage needs to be positive number")
+    @NotNull
     Integer mileage;
 
-//    @Positive(message = "Price needs to be positive number")
-//    @NotNull
+    @Positive(message = "Price needs to be positive number")
+    @NotNull
     Double price;
 
-//    @NotEmpty(message = "Transmission is required")
+    @NotEmpty(message = "Transmission is required")
     Transmission[] transmission;
 
-//    @Positive(message = "Year must be positive")
-//    @NotNull
-//    @Min(value = 1900,message = "Year must be greater than 1900")
+    @Positive(message = "Year must be positive")
+    @NotNull
+    @Min(value = 1900,message = "Year must be greater than 1900")
     Integer year;
 
-//    @NotEmpty(message = "Brand is required")
+    @NotEmpty(message = "Brand is required")
     List<BrandDTO> brands;
 
 }

@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = UniqueUserValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Unique {
+public @interface UniqueUsername {
 
     String message() default "Username already exists";
     Class<?>[] groups() default {};
