@@ -3,7 +3,10 @@ package com.mobilele.mobileleonlineshop.services;
 
 import com.google.gson.reflect.TypeToken;
 import com.mobilele.mobileleonlineshop.dtos.view.models.OfferPreviewDTO;
+import com.mobilele.mobileleonlineshop.entities.domain.Model;
 import com.mobilele.mobileleonlineshop.entities.domain.Offer;
+import com.mobilele.mobileleonlineshop.entities.enums.Engine;
+import com.mobilele.mobileleonlineshop.entities.enums.Transmission;
 import com.mobilele.mobileleonlineshop.repositories.OfferRepository;
 import com.mobilele.mobileleonlineshop.services.Interfaces.OfferService;
 import lombok.AccessLevel;
@@ -52,6 +55,11 @@ public class OfferServiceImpl implements OfferService {
     @Override
     public void deleteOne(Long id) {
     offerRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateOffer(String description, Engine engine, String imageUrl, Integer mileage, Double price, Transmission transmission, Integer year, Model model) {
+        offerRepository.updateOffer(description,engine,imageUrl,mileage,price,transmission,year,model);
     }
 
 

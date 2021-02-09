@@ -33,13 +33,14 @@ th:object="${offer}"
             </div>
             <ul class="offer-details list-group list-group-flush">
                 <li class="list-group-item">
-                    <div class="card-text"><span th:text="*{mileage}">• Mileage</span></div>
-                    <div class="card-text"><span th:text="*{price}">• Price</span></div>
-                    <div class="card-text"><span th:text="*{engine}">• Engine type</span></div>
-                    <div class="card-text"><span th:text="*{transmission}">• Transmission type</span></div>
-                    <div class="card-text"><span th:text="*{created.toString()}">• Offer created</span></div>
-                    <div class="card-text"><span th:text="*{lastModified} == null ? '-' : *{lastModified.toString()}">• Offer modified</span></div>
-                    <div class="card-text"><span th:text="|*{sellerFirstName} *{sellerLastName}|">• Seller - First and Last name</span></div>
+                    <div class="card-text"><span th:text="|Description: *{description}|">• Description</span></div>
+                    <div class="card-text"><span th:text="|Mileage: *{mileage}|">• Mileage</span></div>
+                    <div class="card-text"><span th:text="|Price: *{price}|">• Price</span></div>
+                    <div class="card-text"><span th:text="|Engine: *{engine}|">• Engine type</span></div>
+                    <div class="card-text"><span th:text="|Transmission: *{transmission}|">• Transmission type</span></div>
+                    <div class="card-text"><span th:text="|Created: *{created.toString()}|">• Offer created</span></div>
+                    <div class="card-text"><span th:text="*{lastModified} == null ? 'Last modified: -' : *{'Last modified: ' + lastModified.toString()}">• Offer modified</span></div>
+                    <div class="card-text"><span th:text="|Seller *{sellerFirstName} *{sellerLastName}|">• Seller - First and Last name</span></div>
                 </li>
             </ul>
             <div class="card-body">

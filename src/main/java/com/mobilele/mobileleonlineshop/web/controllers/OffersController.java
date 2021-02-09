@@ -118,11 +118,69 @@ public class OffersController {
         return "details";
     }
 
+
     @GetMapping("/delete")
     public String deleteOffer(Model model, @RequestParam(name = "cid") Long cid){
         offerService.deleteOne(cid);
 
         return "redirect:/offers/all";
     }
+
+    @GetMapping("/update")
+    public String getUpdateView(Model model,@RequestParam(name="cid") Long offerId){
+        model.addAttribute("offerId",offerId);
+
+        if (!model.containsAttribute("offer")){
+            OfferPreviewDTO targetOffer = offerService.findById(offerId);
+
+            model.addAttribute("offer",new OfferUploadDTO(
+                    targetOffer.getDescription(),
+                    targetOffer.getEngine(),
+                    targetOffer.getImageUrl(),
+                    targetOffer.getMileage(),
+                    targetOffer.getPrice(),
+                    targetOffer.getTransmission(),
+                    targetOffer.getYear(),
+                    targetOffer.getModelName()
+                    ,Engine.values(),
+                    Transmission.values(),
+                    brandService.findAllBrands()
+            ));
+        }else{
+            OfferUploadDTO offer =(OfferUploadDTO) model.getAttribute("offer");
+            offer.setEngineOptions(Engine.values());
+            offer.setTransmissionOptions(Transmission.values());
+            offer.setBrands(brandService.findAllBrands());
+        }
+
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String updateOffer(@Valid @ModelAttribute OfferUploadDTO offer,BindingResult bindingResult,RedirectAttributes redirectAttributes,
+                            @RequestParam("cid") Long offerId  ){
+
+        if(bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("offer",offer);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.offer",bindingResult);
+            return String.format("redirect:/offers/update?cid=%d",offerId);
+        }
+
+        offerService.updateOffer(
+                offer.getDescription(),
+                Engine.valueOf(offer.getEngine()),
+                offer.getImageUrl(),
+                offer.getMileage(),
+                offer.getPrice(),
+                Transmission.valueOf(offer.getTransmission()),
+                offer.getYear(),
+                modelRepository.findByName(offer.getModel())
+        );
+
+    //todo: finish template
+        return "redirect:/offers/all";
+    }
+
+
 }
 
